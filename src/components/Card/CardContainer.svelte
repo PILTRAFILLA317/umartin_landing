@@ -28,7 +28,7 @@
 </script>
 
 <div
-	class={cn('flex items-center justify-center py-20', containerClassName)}
+	class={cn('flex items-center justify-center py-10', containerClassName)}
 	style="perspective: 1000px;"
 >
 	<div

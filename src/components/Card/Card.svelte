@@ -1,0 +1,65 @@
+<script lang="ts">
+	import type { Image } from 'lucide-svelte';
+	import CardBody from './CardBody.svelte';
+	import CardContainer from './CardContainer.svelte';
+	import CardItem from './CardItem.svelte';
+
+	type Props = {
+		project: {
+			title: string;
+			logo: Image;
+			bg: Image;
+			description: string;
+			thumbnail: string;
+			link: string;
+		};
+	};
+
+	let { project } = $props();
+
+	let isMouseEntered = $state(false);
+</script>
+
+<CardContainer bind:isMouseEntered className="inter-var">
+	<CardBody
+		className="relative group/card hover:shadow-2xl hover:shadow-cyan-400/[0.1] bg-black w-[800px] h-[500px] rounded-xl border"
+	>
+		<!-- <div class="absolute z-10 backdrop-blur-3xl opacity-50 h-full w-full rounded-xl bg-black object-cover group-hover/card:shadow-xl">
+		
+		</div> -->
+		<div
+			class="absolute z-10 h-full w-full overflow-hidden rounded-xl bg-black object-cover opacity-60 group-hover/card:shadow-xl"
+		>
+			<img
+				src={project.bg}
+				class="absolute z-10 h-full w-full rounded-xl object-cover blur-xs group-hover/card:shadow-xl"
+				alt="thumbnail"
+			/>
+		</div>
+		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-36 ml-10 bottom-20 ">
+			<img
+				src={project.logo}
+				height="1000"
+				width="1000"
+				class="h-full w-full rounded-xl object-cover group-hover/card:shadow-xl"
+				alt="thumbnail"
+			/>
+		</CardItem>
+		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-[500px] bottom-20 left-70">
+			<img
+				src={project.mockup}
+				height="1000"
+				width="1000"
+				class="h-full w-full rounded-xl object-cover"
+				alt="thumbnail"
+			/>
+		</CardItem>
+		<CardItem
+			{isMouseEntered}
+			translateZ={50}
+			className="bottom-7 ml-10 z-50 absolute font-normal text-white"
+		>
+			{project.description}
+		</CardItem>
+	</CardBody>
+</CardContainer>

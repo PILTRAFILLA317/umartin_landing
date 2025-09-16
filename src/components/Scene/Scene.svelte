@@ -136,11 +136,11 @@
 ></T.OrthographicCamera>
 
 {#if $gltf}
-	<T is={$gltf.scene} scale={1.7} position={[-2.3, -4, 0]} rotation={[0, 0.2, 0]} />
+	<T is={$gltf.scene} scale={2.4} position={[-2.3, -5, 0]} rotation={[0, 0.2, 0]} />
 {/if}
 
 {#if $desk}
-	<T is={$desk.scene} scale={1.9} position={[0.3, -4, -3]} rotation={[0, -1.5, 0]} />
+	<T is={$desk.scene} scale={2.6} position={[0.3, -5, -3]} rotation={[0, -1.5, 0]} />
 {/if}
 
 {#if $web}
@@ -149,9 +149,9 @@
 		onpointerleave={handleWebPointerLeave}
 		interactive
 		is={$web.scene}
-		scale={14 * webScale}
-		position={[-3, -1, -5]}
-		rotation={[0, 0.2, 0]}
+		scale={20 * webScale}
+		position={[-5, -1, -5]}
+		rotation={[0, 0.25, 0]}
 	/>
 {/if}
 
@@ -161,9 +161,9 @@
 		onpointerleave={handleWebStuffPointerLeave}
 		interactive
 		is={$web_stuff.scene}
-		scale={14 * webStuffScale}
-		position={[-3, 0.8, -5]}
-		rotation={[0, 0.2, 0]}
+		scale={20 * webStuffScale}
+		position={[-5, 1.5, -5]}
+		rotation={[0, 0.25, 0]}
 	/>
 {/if}
 
@@ -173,8 +173,8 @@
 		onpointerleave={handleMobilePointerLeave}
 		interactive
 		is={$mobile.scene}
-		scale={14 * mobileScale}
-		position={[0, -0.25, -5]}
+		scale={20 * mobileScale}
+		position={[-1.6, 0.1, -5]}
 		rotation={[0, 0, 0]}
 	/>
 {/if}
@@ -185,11 +185,11 @@
 		onpointerleave={handleMobileStuffPointerLeave}
 		interactive
 		is={$mobile_stuff.scene}
-		scale={14 * mobileStuffScale}
-		position={[0, -1, -5]}
+		scale={20 * mobileStuffScale}
+		position={[-1.6, -0.95, -5]}
 		rotation={[0, 0, 0]}
 	/>
 {/if}
 
 <T.AmbientLight intensity={1} />
-<T.DirectionalLight position={[5, 5, 5]} intensity={1} />
+<!-- <T.DirectionalLight position={[5, 5, 5]} intensity={1.5} /> -->

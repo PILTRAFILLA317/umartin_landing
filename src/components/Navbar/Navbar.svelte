@@ -1,5 +1,18 @@
 <script lang="ts">
 	import { House } from '@lucide/svelte';
+	import scrollIntoView from 'smooth-scroll-into-view-if-needed';
+
+	function scrollToSection(sectionId: string) {
+		const element = document.getElementById(sectionId);
+		if (element) {
+			scrollIntoView(element, {
+				behavior: 'smooth',
+				block: 'start',
+				duration: 800,
+				ease: (t) => t * (2 - t) // easeOutQuad
+			});
+		}
+	}
 </script>
 
 <div class="relative flex w-full flex-row items-center justify-center">
@@ -35,7 +48,10 @@
 			>
 			</span> -->
 			</button>
-			<button class="group relative cursor-pointer rounded-full px-4 py-2 font-semibold">
+			<button
+				class="group relative cursor-pointer rounded-full px-4 py-2 font-semibold"
+				onclick={() => scrollToSection('projects')}
+			>
 				<span
 					class="absolute inset-0 scale-0 rounded-full border-white bg-white transition-transform duration-500 group-hover:scale-100"
 				></span>
@@ -56,16 +72,11 @@
 			<button
 				class="group relative cursor-pointer rounded-full border-white bg-cyan-400 px-4 py-2 font-semibold"
 			>
-				<span
-					class="absolute inset-0 scale-0 rounded-full"
-				></span>
+				<span class="absolute inset-0 scale-0 rounded-full"></span>
 				<div
-					class="absolute rounded-full -inset-1 bg-cyan-400 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
+					class="absolute -inset-1 rounded-full bg-cyan-400 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
 				></div>
-				<span
-					class="relative text-sm text-white"
-					>Contact</span
-				>
+				<span class="relative text-sm text-white">Contact</span>
 			</button>
 		</div>
 	</div>
