@@ -10,7 +10,8 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="relative min-h-screen bg-[0f0f0f] inset-0 w-full h-full">
+<div class="relative inset-0 h-full min-h-screen w-full bg-[0f0f0f]">
 	{@render children?.()}
-	<Particles className="absolute inset-0 -z-10" refresh={true} />
+	<Particles className="absolute opacity-40 inset-0 -z-10" refresh={true} />
 </div>
+

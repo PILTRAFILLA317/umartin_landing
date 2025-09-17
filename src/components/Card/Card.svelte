@@ -41,7 +41,7 @@
 				src={project.logo}
 				height="1000"
 				width="1000"
-				class="h-full w-full rounded-xl object-cover group-hover/card:shadow-xl"
+				class="h-full w-full rounded-xl object-cover"
 				alt="thumbnail"
 			/>
 		</CardItem>

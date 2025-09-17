@@ -32,6 +32,7 @@
 		"@threlte/core": "^8.1.5",
 		"@threlte/extras": "^9.5.4",
 		"clsx": "^2.1.1",
+		"framer-motion": "^12.23.13",
 		"lucide-svelte": "^0.542.0",
 		"motion": "^12.23.12",
 		"smooth-scroll-into-view-if-needed": "^2.0.2",

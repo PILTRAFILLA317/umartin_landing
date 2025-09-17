@@ -39,7 +39,7 @@
 	});
 
 	const gltf = useLoader(GLTFLoader).load('scene_assets/scene.glb');
-	const desk = useLoader(GLTFLoader).load('scene_assets/desk_2.glb');
+	const desk = useLoader(GLTFLoader).load('scene_assets/scene_2.glb');
 	const web = useLoader(GLTFLoader).load('scene_assets/web.glb');
 	const web_stuff = useLoader(GLTFLoader).load('scene_assets/web_stuff.glb');
 	const mobile = useLoader(GLTFLoader).load('scene_assets/mobile.glb');
@@ -132,18 +132,22 @@
 	}
 </script>
 
-<T.OrthographicCamera zoom={80} makeDefault position={[0, 0, 10]} rotation={[-0.1, 0, 0]}
-></T.OrthographicCamera>
+<!-- <T.OrthographicCamera zoom={80} makeDefault position={[0, 0, 10]} rotation={[-0.1, 0, 0]}
+></T.OrthographicCamera> -->
+<T.PerspectiveCamera makeDefault zoom={2.3} position={[0, 0, 20]} rotation={[-0.1, 0, 0]}
+></T.PerspectiveCamera>
+<!-- <T.OrthographicCamera makeDefault zoom={80} position={[0, 0, 20]} rotation={[-0.1, 0, 0]}
+></T.OrthographicCamera> -->
 
 {#if $gltf}
-	<T is={$gltf.scene} scale={2.4} position={[-2.3, -5, 0]} rotation={[0, 0.2, 0]} />
+	<T is={$gltf.scene} scale={2.4} position={[-2.3, -5.2, 0]} rotation={[0, 0.2, 0]} />
 {/if}
 
 {#if $desk}
-	<T is={$desk.scene} scale={2.6} position={[0.3, -5, -3]} rotation={[0, -1.5, 0]} />
+	<T is={$desk.scene} scale={3} position={[0.3, -5.2, -1]} rotation={[0, 2, 0]} />
 {/if}
 
-{#if $web}
+<!-- {#if $web}
 	<T
 		onpointerenter={handleWebPointerEnter}
 		onpointerleave={handleWebPointerLeave}
@@ -189,7 +193,7 @@
 		position={[-1.6, -0.95, -5]}
 		rotation={[0, 0, 0]}
 	/>
-{/if}
+{/if} -->
 
-<T.AmbientLight intensity={1} />
+<!-- <T.AmbientLight intensity={1} /> -->
 <!-- <T.DirectionalLight position={[5, 5, 5]} intensity={1.5} /> -->
