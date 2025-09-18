@@ -4,10 +4,20 @@
 	import { useLoader } from '@threlte/core';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-	import { interactivity, Text, Text3DGeometry, Align } from '@threlte/extras';
+	import { interactivity, Text, Text3DGeometry, Align, Grid } from '@threlte/extras';
 	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+	import Effects from './Effects.svelte';
+	import { onMount } from 'svelte';
 
 	interactivity();
+
+	
+
+	let sphereRef;
+
+	const { scene } = useThrelte();
+
+	let meshRef = $state([0, 0, 0]);
 
 	let webScale = $state(1);
 	let mobileScale = $state(1);
@@ -39,11 +49,11 @@
 	});
 
 	const gltf = useLoader(GLTFLoader).load('scene_assets/scene.glb');
-	const desk = useLoader(GLTFLoader).load('scene_assets/scene_2.glb');
-	const web = useLoader(GLTFLoader).load('scene_assets/web.glb');
-	const web_stuff = useLoader(GLTFLoader).load('scene_assets/web_stuff.glb');
-	const mobile = useLoader(GLTFLoader).load('scene_assets/mobile.glb');
-	const mobile_stuff = useLoader(GLTFLoader).load('scene_assets/mobile_stuff.glb');
+	const desk = useLoader(GLTFLoader).load('scene_assets/desk.glb');
+	// const web = useLoader(GLTFLoader).load('scene_assets/web.glb');
+	// const web_stuff = useLoader(GLTFLoader).load('scene_assets/web_stuff.glb');
+	// const mobile = useLoader(GLTFLoader).load('scene_assets/mobile.glb');
+	// const mobile_stuff = useLoader(GLTFLoader).load('scene_assets/mobile_stuff.glb');
 
 	let head = $state<THREE.Object3D | undefined>(undefined);
 	let currentRotationX = 0;
@@ -132,8 +142,17 @@
 	}
 </script>
 
-<!-- <T.OrthographicCamera zoom={80} makeDefault position={[0, 0, 10]} rotation={[-0.1, 0, 0]}
-></T.OrthographicCamera> -->
+<Grid
+	position={[-0.2, -5.2, -207]}
+	gridSize={[0.5, 13.6]}
+	infiniteGrid
+	fadeDistance={30}
+	fadeStrength={3}
+	useFadeOrigin={true}
+	cellColor="#ffffff"
+	sectionColor="#ffffff"
+	sectionSize={0}
+/>
 <T.PerspectiveCamera makeDefault zoom={2.3} position={[0, 0, 20]} rotation={[-0.1, 0, 0]}
 ></T.PerspectiveCamera>
 <!-- <T.OrthographicCamera makeDefault zoom={80} position={[0, 0, 20]} rotation={[-0.1, 0, 0]}
@@ -196,4 +215,5 @@
 {/if} -->
 
 <!-- <T.AmbientLight intensity={1} /> -->
-<!-- <T.DirectionalLight position={[5, 5, 5]} intensity={1.5} /> -->
+<!-- <T.DirectionalLight position={[0, 0, 20]} intensity={0.5} /> -->
+<Effects />

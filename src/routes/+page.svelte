@@ -5,9 +5,24 @@
 	import Card from '../components/Card/Card.svelte';
 	import HeroParallax from '../components/HeroParallax/HeroParallax.svelte';
 	import SkillCard from '../components/SkillCard/SkillCard.svelte';
+	import Globe from '../components/Globe/Globe.svelte';
 	import { Canvas } from '@threlte/core';
 
 	const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
+	let name = '';
+	let email = '';
+	let subject = '';
+	let message = '';
+	let submitBtn: HTMLButtonElement;
+
+	function handleSubmit() {
+		// Aquí puedes agregar lógica para enviar el formulario
+		alert('Mensaje enviado! (demo)');
+		name = '';
+		email = '';
+		subject = '';
+		message = '';
+	}
 
 	let words = [
 		'Full Stack Developer',
@@ -284,9 +299,9 @@
 	];
 	const tools = [
 		{
-			name: 'K3s',
-			logo: 'https://raw.githubusercontent.com/cncf/artwork/master/projects/k3s/icon/color/k3s-icon-color.svg',
-			gradientColor: '#ffc61c'
+			name: 'Kubernetes',
+			logo: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg',
+			gradientColor: '#326ce5'
 		},
 		{
 			name: 'Docker',
@@ -421,7 +436,7 @@
 	performance tuning, and sharp UI/UX. Complex problems in, reliable products out.
 </h2>
 
-<div class="mt-10 mb-20 h-[700px] max-w-full saturate-200">
+<div class="mt-10 mb-20 h-[700px] max-w-full saturate-150">
 	<Canvas>
 		<Scene />
 	</Canvas>
@@ -456,8 +471,7 @@
 		<SkillCard skills={back_skills} group={'Backend'} />
 		<SkillCard skills={tools} group={'Tools'} />
 	</div>
-	<div class="flex flex-row items-center justify-center gap-12">
-	</div>
+	<div class="flex flex-row items-center justify-center gap-12"></div>
 	<div class="flex flex-row items-center justify-center gap-12">
 		<SkillCard skills={languages} group={'Languages'} />
 		<SkillCard skills={design_skills} group={'Design'} />
@@ -466,11 +480,129 @@
 </div>
 <div id="Contact">
 	<h1
-		class="ml-30 mt-20 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
+		class="mt-20 ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
 	>
 		Contact
 	</h1>
+	<section class="flex items-center justify-center">
+		<div class="mx-30 mt-10 bg-black/10 flex h-auto w-full rounded-2xl shadow-xl/10 ">
+			<div
+				class="flex flex-1 flex-row overflow-hidden rounded-l-2xl text-white backdrop-blur-lg backdrop-filter"
+			>
+				<div class="flex flex-col justify-center gap-6">
+					<div
+						class="backdrop-blur-2xs absolute h-full w-full rounded-l-2xl bg-cyan-400/5 text-white backdrop-filter"
+					></div>
+					<h2 class="mb-2 ml-16 text-2xl font-semibold tracking-wide">Contact Info</h2>
+					<div class="flex items-center gap-3 text-base">
+						<span class="ml-16 text-cyan-400">
+							<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+								><path
+									fill="currentColor"
+									d="M16 2A11.013 11.013 0 0 0 5 13a10.9 10.9 0 0 0 2.216 6.6s.3.395.349.452L16 30l8.439-9.953c.044-.053.345-.447.345-.447l.001-.003A10.9 10.9 0 0 0 27 13A11.013 11.013 0 0 0 16 2m0 15a4 4 0 1 1 4-4a4.005 4.005 0 0 1-4 4"
+								/><circle cx="16" cy="13" r="4" fill="none" /></svg
+							>
+						</span>
+						<div class="flex flex-col">
+							<span class="font-bold">Location</span>
+							<span>Bilbao, Spain</span>
+						</div>
+					</div>
+					<div class="flex items-center gap-3 text-base">
+						<span class="ml-16 text-cyan-400">
+							<svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+								><g fill="currentColor"
+									><path
+										d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297l.116.066a1 1 0 0 0 .878 0l.116-.066z"
+									/><path
+										d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a3 3 0 0 1 2.354-1.42L5 4z"
+									/></g
+								></svg
+							>
+						</span>
+						<div class="flex flex-col">
+							<span class="font-bold">Email</span>
+							<span>contact@umartin.es</span>
+						</div>
+					</div>
+					<div class="flex items-center gap-3 text-base">
+						<span class="ml-16 text-cyan-400">
+							<svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+								><path
+									fill="currentColor"
+									fill-rule="evenodd"
+									d="m16.1 13.359l.456-.453c.63-.626 1.611-.755 2.417-.317l1.91 1.039c1.227.667 1.498 2.302.539 3.255l-1.42 1.412c-.362.36-.81.622-1.326.67c-1.192.111-3.645.051-6.539-1.643zm-5.91-5.876l.287-.286c.707-.702.774-1.83.157-2.654L9.374 2.86C8.61 1.84 7.135 1.705 6.26 2.575l-1.57 1.56c-.433.432-.723.99-.688 1.61c.065 1.14.453 3.22 2.149 5.776z"
+									clip-rule="evenodd"
+								/><path
+									fill="currentColor"
+									d="M12.063 11.497c-2.946-2.929-1.88-4.008-1.873-4.015l-4.039 4.04c.667 1.004 1.535 2.081 2.664 3.204c1.14 1.134 2.26 1.975 3.322 2.596L16.1 13.36s-1.082 1.076-4.037-1.862"
+									opacity=".6"
+								/></svg
+							>
+						</span>
+						<div class="flex flex-col">
+							<span class="font-bold">Phone</span>
+							<span>+34 652 68 68 29</span>
+						</div>
+					</div>
+				</div>
+				<Globe />
+			</div>
+			<div class="z-10 flex flex-[1.2] flex-col justify-center gap-4 bg-transparent p-8 text-white">
+				<h2 class="mb-2 text-lg font-semibold tracking-wide">Send Me a Message</h2>
+				<form on:submit|preventDefault={handleSubmit} class="space-y-4">
+					<div class="flex w-full flex-row gap-4">
+						<div class="flex-1">
+							<input
+								type="text"
+								placeholder="Name"
+								bind:value={name}
+								required
+								class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
+							/>
+						</div>
+						<div class="flex-1">
+							<input
+								type="email"
+								placeholder="Email"
+								bind:value={email}
+								required
+								class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
+							/>
+						</div>
+					</div>
+					<div>
+						<input
+							type="text"
+							placeholder="Subject"
+							bind:value={subject}
+							required
+							class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
+						/>
+					</div>
+					<div>
+						<textarea
+							placeholder="Message"
+							bind:value={message}
+							required
+							rows="4"
+							class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
+						></textarea>
+					</div>
+					<button
+						type="submit"
+						class="rounded-xl bg-cyan-400 bg-gradient-to-r px-8 py-3 text-lg font-semibold text-white shadow transition-transform duration-200 hover:scale-105 hover:-rotate-2 hover:shadow-cyan-400/40 active:scale-95"
+						bind:this={submitBtn}>Submit</button
+					>
+				</form>
+			</div>
+		</div>
+	</section>
 </div>
+
+<footer class="mt-10 w-full bg-zinc-900 py-6 text-center text-sm text-zinc-400">
+	&copy; {new Date().getFullYear()} Unai Martín. All rights reserved.
+</footer>
 
 <style>
 	.cursor {
