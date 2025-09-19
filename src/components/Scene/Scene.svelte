@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { MathUtils } from 'three';
 	import { T, useTask, useThrelte } from '@threlte/core';
 	import { useLoader } from '@threlte/core';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 	import { interactivity, Text, Text3DGeometry, Align, Grid } from '@threlte/extras';
-	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 	import Effects from './Effects.svelte';
 	import { onMount } from 'svelte';
 

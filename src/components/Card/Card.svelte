@@ -12,6 +12,7 @@
 			description: string;
 			thumbnail: string;
 			link: string;
+			isWeb: boolean;
 		};
 	};
 
@@ -24,9 +25,6 @@
 	<CardBody
 		className="relative group/card hover:shadow-2xl hover:shadow-cyan-400/[0.1] bg-black w-[800px] h-[500px] rounded-xl border"
 	>
-		<!-- <div class="absolute z-10 backdrop-blur-3xl opacity-50 h-full w-full rounded-xl bg-black object-cover group-hover/card:shadow-xl">
-		
-		</div> -->
 		<div
 			class="absolute z-10 h-full w-full overflow-hidden rounded-xl bg-black object-cover opacity-60 group-hover/card:shadow-xl"
 		>
@@ -45,15 +43,35 @@
 				alt="thumbnail"
 			/>
 		</CardItem>
-		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-[500px] bottom-20 left-70">
-			<img
-				src={project.mockup}
-				height="1000"
-				width="1000"
-				class="h-full w-full rounded-xl object-cover"
-				alt="thumbnail"
-			/>
-		</CardItem>
+		{#if project.isWeb}
+			<CardItem
+				{isMouseEntered}
+				translateZ="60"
+				className="absolute z-50 size-[520px] bottom-30 left-70"
+			>
+				<img
+					src={project.mockup}
+					height="1000"
+					width="1000"
+					class="h-full w-full rounded-xl object-cover"
+					alt="thumbnail"
+				/>
+			</CardItem>
+		{:else}
+			<CardItem
+				{isMouseEntered}
+				translateZ="60"
+				className="absolute z-50 size-[500px] bottom-20 left-70"
+			>
+				<img
+					src={project.mockup}
+					height="1000"
+					width="1000"
+					class="h-full w-full rounded-xl object-cover"
+					alt="thumbnail"
+				/>
+			</CardItem>
+		{/if}
 		<CardItem
 			{isMouseEntered}
 			translateZ={50}

@@ -3,7 +3,6 @@
 	import Navbar from '../components/Navbar/Navbar.svelte';
 	import Scene from '../components/Scene/Scene.svelte';
 	import Card from '../components/Card/Card.svelte';
-	import HeroParallax from '../components/HeroParallax/HeroParallax.svelte';
 	import SkillCard from '../components/SkillCard/SkillCard.svelte';
 	import Globe from '../components/Globe/Globe.svelte';
 	import { Canvas } from '@threlte/core';
@@ -75,87 +74,6 @@
 		}
 	}
 
-	const products = [
-		{
-			title: 'Moonbeam',
-			link: 'https://gomoonbeam.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/moonbeam.png'
-		},
-		{
-			title: 'Cursor',
-			link: 'https://cursor.so',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/cursor.png'
-		},
-		{
-			title: 'Rogue',
-			link: 'https://userogue.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/rogue.png'
-		},
-
-		{
-			title: 'Editorially',
-			link: 'https://editorially.org',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/editorially.png'
-		},
-		{
-			title: 'Editrix AI',
-			link: 'https://editrix.ai',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/editrix.png'
-		},
-		{
-			title: 'Pixel Perfect',
-			link: 'https://app.pixelperfect.quest',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/pixelperfect.png'
-		},
-
-		{
-			title: 'Algochurn',
-			link: 'https://algochurn.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/algochurn.png'
-		},
-		{
-			title: 'Aceternity UI',
-			link: 'https://ui.aceternity.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/aceternityui.png'
-		},
-		{
-			title: 'Tailwind Master Kit',
-			link: 'https://tailwindmasterkit.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png'
-		},
-		{
-			title: 'SmartBridge',
-			link: 'https://smartbridgetech.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/smartbridge.png'
-		},
-		{
-			title: 'Renderwork Studio',
-			link: 'https://renderwork.studio',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/renderwork.png'
-		},
-
-		{
-			title: 'Creme Digital',
-			link: 'https://cremedigital.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/cremedigital.png'
-		},
-		{
-			title: 'Golden Bells Academy',
-			link: 'https://goldenbellsacademy.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png'
-		},
-		{
-			title: 'Invoker Labs',
-			link: 'https://invoker.lol',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/invoker.png'
-		},
-		{
-			title: 'E Free Invoice',
-			link: 'https://efreeinvoice.com',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png'
-		}
-	];
-
 	const projects = [
 		{
 			title: 'Pari',
@@ -164,13 +82,38 @@
 			logo: 'project_assets/pari_logo.png',
 			// link: 'https://gomoonbeam.com',
 			bg: 'project_assets/pari_bg.png',
-			mockup: 'project_assets/pari_mockup.webp'
-			// thumbnail: 'https://aceternity.com/images/products/thumbnails/new/moonbeam.png'
+			mockup: 'project_assets/pari_mockup.webp',
+			isWeb: false
 		},
 		{
-			title: 'Foodiefy',
-			link: 'https://cursor.so',
-			thumbnail: 'https://aceternity.com/images/products/thumbnails/new/cursor.png'
+			title: 'Matcha',
+			logo: 'project_assets/matcha_logo.png',
+			description:
+				'A modern dating web application built with SvelteKit that connects users based on geographic location, shared interests, and personal preferences. Features real-time chat, intelligent matching algorithms, advanced search filters, and comprehensive user profiles with image galleries.',
+			// link: 'https://gomoonbeam.com',
+			bg: 'project_assets/matcha_bg.png',
+			mockup: 'project_assets/matcha_mockup.png',
+			isWeb: true
+		},
+		{
+			title: 'Matcha2',
+			logo: 'project_assets/matcha_logo.png',
+			description:
+				'A modern dating web application built with SvelteKit that connects users based on geographic location, shared interests, and personal preferences. Features real-time chat, intelligent matching algorithms, advanced search filters, and comprehensive user profiles with image galleries.',
+			// link: 'https://gomoonbeam.com',
+			bg: 'project_assets/matcha_bg.png',
+			mockup: 'project_assets/matcha_mockup.png',
+			isWeb: true
+		},
+		{
+			title: 'Pari2',
+			description:
+				'In real time party and event finding and planning app. Made in Flutter with Firebase backend and authentication system. (WIP)',
+			logo: 'project_assets/pari_logo.png',
+			// link: 'https://gomoonbeam.com',
+			bg: 'project_assets/pari_bg.png',
+			mockup: 'project_assets/pari_mockup.webp',
+			isWeb: false
 		}
 	];
 
@@ -430,11 +373,47 @@
 		>|</span
 	>
 </h1>
-<h2 class="mb-10 ml-30 max-w-2xl text-lg font-light text-[#b4b4b4]">
+<h2 class="mb-10 ml-30 max-w-2xl text-xl font-light text-[#b4b4b4]">
 	I design and ship fast, elegant software—web, mobile, games, and more. From low‑level systems and
 	high‑performance backends to polished frontends and native apps, I blend clean architecture,
 	performance tuning, and sharp UI/UX. Complex problems in, reliable products out.
 </h2>
+<div class="ml-30 flex flex-row items-center gap-6">
+	<button
+		class="group relative cursor-pointer rounded-full bg-cyan-400/20 px-8 py-4 font-semibold"
+		onclick={() => {
+			document.getElementById('Contact')?.scrollIntoView({ behavior: 'smooth' });
+		}}
+	>
+		<span
+			class="absolute inset-0 scale-0 rounded-full border-white bg-cyan-400 transition-transform duration-500 group-hover:scale-100"
+		>
+			<div
+				class="absolute -inset-1 rounded-full bg-cyan-400 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
+			></div></span
+		>
+		<span class="relative text-lg text-white transition-colors duration-500 group-hover:text-black"
+			>Contact</span
+		>
+	</button>
+	<button
+		class="group relative cursor-pointer rounded-full bg-black/40 px-8 py-4 font-semibold"
+		onclick={() => {
+			window.location.href = '/projects';
+		}}
+	>
+		<span
+			class="absolute inset-0 scale-0 rounded-full border-white bg-white transition-transform duration-500 group-hover:scale-100"
+		>
+			<div
+				class="absolute -inset-1 rounded-full bg-white opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
+			></div></span
+		>
+		<span class="relative text-lg text-white transition-colors duration-500 group-hover:text-black"
+			>Download CV</span
+		>
+	</button>
+</div>
 
 <div class="mt-10 mb-20 h-[700px] max-w-full saturate-150">
 	<Canvas>
@@ -447,15 +426,41 @@
 	>
 		Lastest Projects
 	</h2>
-	<div class="mb-20 grid grid-cols-2">
+	<h2 class="ml-30 max-w-2xl text-lg font-light text-[#b4b4b4]">
+		A collection of my recent work, showcasing a variety of skills and technologies.
+	</h2>
+	<div class="grid grid-cols-2 gap-10 px-30">
 		{#each projects as project (project.title)}
 			<Card {project} />
 		{/each}
 	</div>
 </div>
-<!-- <div class="container w-screen max-w-full overflow-x-hidden">
-	<HeroParallax {products} />
-</div> -->
+<div class="container mb-10 flex w-screen max-w-full items-center justify-center">
+	<button
+		class="group relative cursor-pointer rounded-xl bg-black/40 px-8 py-4 font-semibold"
+		onclick={() => {
+			window.location.href = '/projects';
+		}}
+	>
+		<span
+			class="absolute inset-0 z-0 h-full w-full origin-left scale-x-0 transform rounded-xl bg-white transition-transform duration-800 ease-in-out group-hover:scale-x-100"
+		>
+			<div
+				class="absolute -inset-1 rounded-xl bg-white/50 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
+			></div></span
+		>
+		<span
+			class="absolute inset-0 z-0 h-full w-full origin-right scale-x-0 transform rounded-xl bg-white transition-transform duration-800 ease-in-out group-hover:scale-x-100"
+		>
+			<div
+				class="absolute -inset-1 rounded-xl bg-white/50 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-500"
+			></div>
+		</span>
+		<span class="relative text-xl text-white transition-colors duration-500 group-hover:text-black"
+			>View more projects</span
+		>
+	</button>
+</div>
 <div class="relative top-0 left-0 w-full py-8 md:py-4" id="Skills">
 	<h1
 		class="ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
@@ -484,8 +489,11 @@
 	>
 		Contact
 	</h1>
+	<h2 class="ml-30 max-w-2xl text-lg font-light text-[#b4b4b4]">
+		Have a project in mind or just want to say hi? Feel free to reach out!
+	</h2>
 	<section class="flex items-center justify-center">
-		<div class="mx-30 mt-10 bg-black/10 flex h-auto w-full rounded-2xl shadow-xl/10 ">
+		<div class="mx-30 mt-10 flex h-auto w-full rounded-2xl bg-black/10 shadow-xl/10">
 			<div
 				class="flex flex-1 flex-row overflow-hidden rounded-l-2xl text-white backdrop-blur-lg backdrop-filter"
 			>
@@ -550,7 +558,7 @@
 			</div>
 			<div class="z-10 flex flex-[1.2] flex-col justify-center gap-4 bg-transparent p-8 text-white">
 				<h2 class="mb-2 text-lg font-semibold tracking-wide">Send Me a Message</h2>
-				<form on:submit|preventDefault={handleSubmit} class="space-y-4">
+				<form class="space-y-4">
 					<div class="flex w-full flex-row gap-4">
 						<div class="flex-1">
 							<input
@@ -601,7 +609,7 @@
 </div>
 
 <footer class="mt-10 w-full bg-zinc-900 py-6 text-center text-sm text-zinc-400">
-	&copy; {new Date().getFullYear()} Unai Martín. All rights reserved.
+	&copy; {new Date().getFullYear()} Unai Martín. Not a single right reserved.
 </footer>
 
 <style>
@@ -618,8 +626,5 @@
 		100% {
 			opacity: 0;
 		}
-	}
-	html {
-		scroll-behavior: smooth;
 	}
 </style>
