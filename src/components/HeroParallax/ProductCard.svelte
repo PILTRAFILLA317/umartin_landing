@@ -29,7 +29,7 @@
 			/>
 		</a>
 		<div
-			class="pointer-events-none absolute inset-0 h-full w-full bg-black opacity-0 group-hover/product:opacity-80"
+			class="pointer-events-none absolute inset-0 h-full w-full bg-black rounded-2xl opacity-0 group-hover/product:opacity-80"
 		></div>
 		<h2 class="absolute bottom-4 left-4 text-white opacity-0 group-hover/product:opacity-100">
 			{product.title}
