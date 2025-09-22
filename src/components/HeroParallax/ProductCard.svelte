@@ -18,7 +18,7 @@
 		y: -20
 	}}
 >
-	<div use:motion class="group/product relative h-96 w-[30rem] flex-shrink-0">
+	<div use:motion class="group/product relative h-72 w-[35rem] flex-shrink-0">
 		<a href={product.link} class="block group-hover/product:shadow-2xl">
 			<img
 				src={product.thumbnail}

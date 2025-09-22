@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { House } from '@lucide/svelte';
-	import scrollIntoView from 'smooth-scroll-into-view-if-needed';
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
