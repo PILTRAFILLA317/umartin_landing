@@ -100,7 +100,6 @@
 			description:
 				'In real time party and event finding and planning app. Made in Flutter with Firebase backend and authentication system. (WIP)',
 			logo: 'project_assets/pari_logo.png',
-			// link: 'https://gomoonbeam.com',
 			bg: 'project_assets/pari_bg.png',
 			mockup: 'project_assets/pari_mockup.webp',
 			isWeb: false
@@ -110,19 +109,17 @@
 			logo: 'project_assets/matcha_logo.png',
 			description:
 				'A modern dating web application built with SvelteKit that connects users based on geographic location, shared interests, and personal preferences. Features real-time chat, intelligent matching algorithms, advanced search filters, and comprehensive user profiles with image galleries.',
-			// link: 'https://gomoonbeam.com',
 			bg: 'project_assets/matcha_bg.png',
 			mockup: 'project_assets/matcha_mockup.png',
 			isWeb: true
 		},
 		{
-			title: 'Matcha2',
-			logo: 'project_assets/matcha_logo.png',
+			title: 'Bitflix',
+			logo: 'project_assets/bitflix_logo.png',
 			description:
-				'A modern dating web application built with SvelteKit that connects users based on geographic location, shared interests, and personal preferences. Features real-time chat, intelligent matching algorithms, advanced search filters, and comprehensive user profiles with image galleries.',
-			// link: 'https://gomoonbeam.com',
-			bg: 'project_assets/matcha_bg.png',
-			mockup: 'project_assets/matcha_mockup.png',
+				'A web platform that uses BitTorrent technology to download and stream movies directly to users. Built with modern web technologies, featuring real-time streaming capabilities, torrent integration, and a sleek user interface for seamless movie discovery and playback.',
+			bg: 'project_assets/bitflix_bg.png',
+			mockup: 'project_assets/bitflix_mockup.png',
 			isWeb: true
 		},
 		{
@@ -130,7 +127,6 @@
 			description:
 				'In real time party and event finding and planning app. Made in Flutter with Firebase backend and authentication system. (WIP)',
 			logo: 'project_assets/pari_logo.png',
-			// link: 'https://gomoonbeam.com',
 			bg: 'project_assets/pari_bg.png',
 			mockup: 'project_assets/pari_mockup.webp',
 			isWeb: false
@@ -381,7 +377,7 @@
 
 <h1
 	id="home"
-	class="mt-40 ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent"
+	class="mt-20 ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent"
 >
 	Hi, I'm Unai!
 </h1>
@@ -518,7 +514,7 @@
 							</span>
 							<div class="flex flex-col">
 								<span class="font-bold">Email</span>
-								<span>contact@umartin.es</span>
+								<span>contacto@umartin.es</span>
 							</div>
 						</div>
 						<div class="flex items-center gap-3 text-base">
@@ -717,7 +713,7 @@
 						</span>
 						<div class="flex flex-col">
 							<span class="font-bold">Email</span>
-							<span>contact@umartin.es</span>
+							<span>contacto@umartin.es</span>
 						</div>
 					</div>
 					<div class="flex items-center gap-3 text-base">

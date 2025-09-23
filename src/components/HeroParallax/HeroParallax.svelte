@@ -30,13 +30,13 @@
 
 <div
 	bind:this={ref}
-	class="relative flex h-[2000px] flex-col self-auto overflow-hidden py-4 antialiased [perspective:1000px] [transform-style:preserve-3d]"
+	class="relative flex h-[1900px] flex-col self-auto overflow-hidden py-4 antialiased [perspective:1000px] [transform-style:preserve-3d]"
 >
 	<div class="relative top-0 left-0 mx-auto w-full max-w-7xl px-4 py-8 md:py-4">
-		<h2 class="text-2xl font-bold md:text-7xl dark:text-white">
+		<h2 class="text-2xl font-bold md:text-7xl text-white">
 			My entire portfolio of <br /> projects
 		</h2>
-		<p class="mt-8 max-w-2xl text-base md:text-xl dark:text-neutral-200">
+		<p class="mt-8 max-w-2xl text-base md:text-xl text-neutral-200">
 			Here are some of the projects I've worked on recently. Click on any project to
 			learn more about it.
 		</p>

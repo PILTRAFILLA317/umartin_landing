@@ -21,46 +21,10 @@
 
 	const projects: Project[] = [
 		{
-			name: 'GotxoAstroLanding',
-			description: 'Modern landing page built with Astro featuring fast loading and SEO',
-			technologies: ['Astro', 'TypeScript', 'Tailwind CSS', 'JavaScript'],
-			link: 'https://github.com/PILTRAFILLA317/GotxoAstroLanding',
-			language: 'Astro',
-			icon: '🚀',
-			lottie: 'lotties/rocket.json',
-			date: 'Jun 5, 2024',
-			status: 'public',
-			category: 'Full Stack'
-		},
-		{
-			name: 'HypeClipsHub',
-			description: 'Platform for creating social media clips with IA',
-			technologies: ['SvelteKit', 'TypeScript', 'Supabase', 'Python'],
-			link: 'https://github.com/PILTRAFILLA317/HypeClipsHub',
-			language: 'Svelte',
-			icon: '🎮',
-			lottie: 'lotties/phone.json',
-			date: 'Apr 26, 2024',
-			status: 'private',
-			category: 'Full Stack'
-		},
-		{
-			name: 'Briar_Engine',
-			description: 'Custom game engine built from scratch with modern C++ and OpenGL rendering',
-			technologies: ['C++', 'OpenGL', 'GLFW', 'GLM'],
-			link: 'https://github.com/PILTRAFILLA317/Briar_Engine',
-			language: 'C++',
-			icon: '🎯',
-			lottie: 'lotties/game.json',
-			date: 'Jan 2, 2024',
-			status: 'public',
-			category: 'Graphics'
-		},
-		{
 			name: 'Transcendence',
 			description: 'Real-time multiplayer Pong game with chat, tournaments, and user management',
 			technologies: ['Django', 'PostgreSQL', 'WebSocket', 'Docker', 'Sveltekit', 'TypeScript'],
-			link: 'https://github.com/ikersojo/07_ft_transcendence',
+			link: 'https://github.com/PILTRAFILLA317/ft_transcendence',
 			language: 'Python',
 			icon: '🏓',
 			lottie: 'lotties/pong.json',
@@ -80,18 +44,6 @@
 			date: 'Dec 4, 2024',
 			status: 'public',
 			category: 'Systems Programming'
-		},
-		{
-			name: 'PariApp',
-			description: 'Mobile application built with Flutter to find events and activities nearby',
-			technologies: ['Flutter', 'Dart', 'Firebase'],
-			link: 'https://github.com/PILTRAFILLA317/PariApp',
-			language: 'Dart',
-			icon: '📱',
-			lottie: 'lotties/pari.json',
-			date: 'Nov 24, 2024',
-			status: 'private',
-			category: 'Mobile App'
 		},
 		{
 			name: '42-darkly',
@@ -156,6 +108,19 @@
 			category: 'Graphics'
 		},
 		{
+			name: '42lib',
+			description:
+				'Collection of foundational utility functions and data structures for C projects',
+			technologies: ['C', 'Makefile', 'Data Structures', 'Memory Management'],
+			link: 'https://github.com/PILTRAFILLA317/42lib',
+			language: 'C',
+			icon: '📚',
+			lottie: 'lotties/library.json',
+			date: 'Dec 20, 2024',
+			status: 'public',
+			category: 'Systems Programming'
+		},
+		{
 			name: 'minishell',
 			description: 'Custom shell implementation with command parsing and execution',
 			technologies: ['C', 'Unix', 'System Calls', 'Parsing'],
@@ -190,6 +155,80 @@
 			date: 'Oct 26, 2022',
 			status: 'public',
 			category: 'Algorithms'
+		},
+		{
+			name: '42-matcha',
+			description: 'Dating web application with real-time messaging and profile matching',
+			technologies: ['SvelteKit', 'TypeScript', 'WebSocket', 'PostgreSQL'],
+			link: 'https://github.com/PILTRAFILLA317/42-matcha',
+			language: 'Svelte',
+			icon: '💕',
+			lottie: 'lotties/heart.json',
+			date: 'Dec 19, 2024',
+			status: 'public',
+			category: 'Full Stack'
+		},
+		{
+			name: 'GotxoAstroLanding',
+			description: 'Modern landing page built with Astro featuring fast loading and SEO',
+			technologies: ['Astro', 'TypeScript', 'Tailwind CSS', 'JavaScript'],
+			link: 'https://github.com/PILTRAFILLA317/GotxoAstroLanding',
+			language: 'Astro',
+			icon: '🚀',
+			lottie: 'lotties/rocket.json',
+			date: 'Jun 5, 2024',
+			status: 'public',
+			category: 'Full Stack'
+		},
+		{
+			name: 'Briar_Engine',
+			description:
+				'Custom game engine built from scratch with modern C++ and OpenGL rendering (WIP)',
+			technologies: ['C++', 'OpenGL', 'GLFW', 'GLM'],
+			link: 'https://github.com/PILTRAFILLA317/Briar_Engine',
+			language: 'C++',
+			icon: '🎯',
+			lottie: 'lotties/game.json',
+			date: 'Jan 2, 2024',
+			status: 'public',
+			category: 'Graphics'
+		},
+		{
+			name: 'Foodiefy',
+			description: 'Food discovery and recipe sharing mobile application (WIP)',
+			technologies: ['Flutter', 'Dart', 'Python'],
+			link: 'https://github.com/PILTRAFILLA317/Foodiefy',
+			language: 'Dart',
+			icon: '🍽️',
+			lottie: 'lotties/food.json',
+			date: 'Aug 9, 2024',
+			status: 'public',
+			category: 'Mobile App'
+		},
+		{
+			name: 'PariApp',
+			description:
+				'Mobile application built with Flutter to find events and activities nearby (WIP)',
+			technologies: ['Flutter', 'Dart', 'Firebase'],
+			link: 'https://github.com/PILTRAFILLA317/PariApp',
+			language: 'Dart',
+			icon: '📱',
+			lottie: 'lotties/pari.json',
+			date: 'Nov 24, 2024',
+			status: 'private',
+			category: 'Mobile App'
+		},
+		{
+			name: 'HypeClipsHub',
+			description: 'Platform for creating social media clips with IA (WIP)',
+			technologies: ['SvelteKit', 'TypeScript', 'Supabase', 'Python'],
+			link: 'https://github.com/PILTRAFILLA317/HypeClipsHub',
+			language: 'Svelte',
+			icon: '🎮',
+			lottie: 'lotties/phone.json',
+			date: 'Apr 26, 2024',
+			status: 'private',
+			category: 'Full Stack'
 		}
 	];
 
@@ -318,3 +357,7 @@
 		</div>
 	</div>
 </div>
+
+<footer class="mt-10 w-full bg-zinc-900 py-6 text-center text-sm text-zinc-400">
+	&copy; {new Date().getFullYear()} Unai Martín. Not a single right reserved.
+</footer>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import Particles from '../components/Particles/Particles.svelte';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 
 	let { children } = $props();
 </script>
