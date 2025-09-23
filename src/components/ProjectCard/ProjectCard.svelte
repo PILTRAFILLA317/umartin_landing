@@ -122,7 +122,7 @@
 				>
 					{project.name}
 				</h3>
-				<p class="text-xs text-zinc-500 transition-colors duration-300 dark:text-zinc-400">
+				<p class="text-xs transition-colors duration-300 text-zinc-400">
 					{project.date}
 				</p>
 			</div>
@@ -152,7 +152,7 @@
 			{/each}
 			{#if project.technologies.length > 2}
 				<span
-					class="rounded-md bg-zinc-100 px-2 py-1 text-xs font-light text-[#b4b4b4] transition-all duration-300 ease-out hover:scale-105 dark:bg-zinc-700"
+					class="rounded-md px-2 py-1 text-xs font-light text-[#b4b4b4] transition-all duration-300 ease-out hover:scale-105 bg-zinc-700"
 				>
 					+{project.technologies.length - 2}
 				</span>
@@ -170,7 +170,7 @@
 				href={project.link}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="text-blue-600 transition-all duration-300 ease-out hover:scale-110 hover:rotate-12 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+				class="transition-all duration-300 ease-out hover:scale-110 hover:rotate-12 text-blue-400 hover:text-blue-200"
 				aria-label="View {project.name} repository"
 			>
 				<!-- <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">

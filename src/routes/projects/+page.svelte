@@ -330,29 +330,29 @@
 		<div class="mt-20 grid grid-cols-2 gap-4 text-center md:grid-cols-5">
 			<div class="rounded-xl bg-white/5 p-6 shadow-lg backdrop-blur-sm">
 				<div class="mb-2 text-3xl font-bold text-blue-600">{projects.length}</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">Total Projects</div>
+				<div class="text-sm text-gray-300">Total Projects</div>
 			</div>
 			<div class="rounded-xl bg-white/5 p-6 shadow-lg backdrop-blur-sm">
 				<div class="mb-2 text-3xl font-bold text-green-600">
 					{new Set(projects.flatMap((p) => p.technologies)).size}
 				</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">Technologies</div>
+				<div class="text-sm text-gray-300">Technologies</div>
 			</div>
 			<div class="rounded-xl bg-white/5 p-6 shadow-lg backdrop-blur-sm">
 				<div class="mb-2 text-3xl font-bold text-purple-600">
 					{new Set(projects.map((p) => p.language)).size}
 				</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">Languages</div>
+				<div class="text-sm text-gray-300">Languages</div>
 			</div>
 			<div class="rounded-xl bg-white/5 p-6 shadow-lg backdrop-blur-sm">
 				<div class="mb-2 text-3xl font-bold text-orange-600">{categories.length}</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">Categories</div>
+				<div class="text-sm text-gray-300">Categories</div>
 			</div>
 			<div class="rounded-xl bg-white/5 p-6 shadow-lg backdrop-blur-sm">
 				<div class="mb-2 text-3xl font-bold text-red-600">
 					{projects.filter((p) => p.status === 'public').length}
 				</div>
-				<div class="text-sm text-gray-600 dark:text-gray-300">Public Repos</div>
+				<div class="text-sm text-gray-300">Public Repos</div>
 			</div>
 		</div>
 	</div>

@@ -434,7 +434,10 @@
 	<button
 		class="group relative cursor-pointer rounded-full bg-black/40 px-8 py-4 font-semibold"
 		onclick={() => {
-			window.location.href = '/projects';
+			const link = document.createElement('a');
+			link.href = '/Unai_Martin_CV.pdf';
+			link.download = 'Unai_Martin_CV.pdf';
+			link.click();
 		}}
 	>
 		<span
