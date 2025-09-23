@@ -8,11 +8,6 @@
 	import { Canvas } from '@threlte/core';
 
 	const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
-	let name = '';
-	let email = '';
-	let subject = '';
-	let message = '';
-	let submitBtn: HTMLButtonElement;
 
 	// Timeline de estudios
 	const education = [
@@ -33,15 +28,6 @@
 			status: 'completed'
 		}
 	];
-
-	function handleSubmit() {
-		// Aquí puedes agregar lógica para enviar el formulario
-		alert('Mensaje enviado! (demo)');
-		name = '';
-		email = '';
-		subject = '';
-		message = '';
-	}
 
 	let words = [
 		'Full Stack Developer',
@@ -102,6 +88,7 @@
 			logo: 'project_assets/pari_logo.png',
 			bg: 'project_assets/pari_bg.png',
 			mockup: 'project_assets/pari_mockup.webp',
+			link: 'https://github.com/PILTRAFILLA317/PariApp',
 			isWeb: false
 		},
 		{
@@ -111,6 +98,7 @@
 				'A modern dating web application built with SvelteKit that connects users based on geographic location, shared interests, and personal preferences. Features real-time chat, intelligent matching algorithms, advanced search filters, and comprehensive user profiles with image galleries.',
 			bg: 'project_assets/matcha_bg.png',
 			mockup: 'project_assets/matcha_mockup.png',
+			link: 'https://github.com/PILTRAFILLA317/42-matcha',
 			isWeb: true
 		},
 		{
@@ -119,16 +107,18 @@
 			description:
 				'A web platform that uses BitTorrent technology to download and stream movies directly to users. Built with modern web technologies, featuring real-time streaming capabilities, torrent integration, and a sleek user interface for seamless movie discovery and playback.',
 			bg: 'project_assets/bitflix_bg.png',
+			link: 'https://github.com/Ionmi/hypertube',
 			mockup: 'project_assets/bitflix_mockup.png',
 			isWeb: true
 		},
 		{
-			title: 'Pari2',
+			title: 'Foodiefy',
 			description:
-				'In real time party and event finding and planning app. Made in Flutter with Firebase backend and authentication system. (WIP)',
-			logo: 'project_assets/pari_logo.png',
-			bg: 'project_assets/pari_bg.png',
-			mockup: 'project_assets/pari_mockup.webp',
+				'A recipe app that transcribes cooking videos from social media platforms, automatically extracting ingredients and instructions. Built with Flutter and AI-powered video analysis using Python API.',
+			logo: 'project_assets/foodiefy_logo.png',
+			bg: 'project_assets/foodiefy_bg.png',
+			mockup: 'project_assets/foodiefy_mockup.png',
+			link: 'https://github.com/PILTRAFILLA317/foodiefy',
 			isWeb: false
 		}
 	];
@@ -370,6 +360,35 @@
 		}
 	];
 
+	let form_name = $state('');
+	let form_email = $state('');
+	let form_subject = $state('');
+	let form_message = $state('');
+	let form_success = $state(false);
+	let form_error = $state('');
+
+	async function handleFormSubmit(event: Event) {
+		event.preventDefault();
+		form_success = false;
+		form_error = '';
+		const res = await fetch('https://formspree.io/f/xldpebqo', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ form_name, form_email, form_subject, form_message })
+		});
+		if (res.ok) {
+			form_success = true;
+			form_name = '';
+			form_email = '';
+			form_subject = '';
+			form_message = '';
+		} else {
+			form_error = 'Error sending message. Please try again.';
+		}
+	}
+
 	type();
 </script>
 
@@ -451,18 +470,18 @@
 			<div
 				class="flex flex-1 flex-row overflow-hidden rounded-l-2xl text-white backdrop-blur-lg backdrop-filter"
 			>
-				<div class="flex flex-col justify-center gap-6 p-8">
+				<div class="flex flex-col justify-center gap-6 pr-8">
 					<div
 						class="backdrop-blur-2xs absolute h-full w-full rounded-l-2xl bg-cyan-400/5 text-white backdrop-filter"
 					></div>
 					<h2 class="ml-10 text-2xl font-semibold tracking-wide">Who I Am</h2>
-					<p class="ml-10 text-md leading-relaxed text-gray-300">
+					<p class="text-md ml-10 leading-relaxed text-gray-300">
 						I'm a passionate Full Stack Developer and UI Designer with a knack for creating seamless
 						digital experiences. With a strong foundation in both front-end and back-end
 						technologies, I thrive on building applications that are not only functional but also
 						visually appealing.
 					</p>
-					<p class="ml-10 text-md leading-relaxed text-gray-300">
+					<p class="text-md ml-10 leading-relaxed text-gray-300">
 						Whether it's crafting intuitive user interfaces or architecting robust server-side
 						solutions, I bring a dedicated and detail-oriented approach to every project I
 						undertake. I'm always eager to learn new technologies and tackle challenging problems.
@@ -605,7 +624,7 @@
 </div>
 <div id="projects" class="relative top-0 left-0 w-full py-8 md:py-4">
 	<h2
-		class="ml-30 mt-20 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
+		class="mt-20 ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
 	>
 		Lastest Projects
 	</h2>
@@ -614,7 +633,9 @@
 	</h2>
 	<div class="grid grid-cols-2 gap-10 px-30">
 		{#each projects as project (project.title)}
-			<Card {project} />
+			<button onclick={() => window.open(project.link, '_blank')}>
+				<Card {project} />
+			</button>
 		{/each}
 	</div>
 </div>
@@ -741,13 +762,13 @@
 			</div>
 			<div class="z-10 flex flex-[1.2] flex-col justify-center gap-4 bg-transparent p-8 text-white">
 				<h2 class="mb-2 text-lg font-semibold tracking-wide">Send Me a Message</h2>
-				<form class="space-y-4">
+				<form class="space-y-4" onsubmit={handleFormSubmit} autocomplete="on">
 					<div class="flex w-full flex-row gap-4">
 						<div class="flex-1">
 							<input
 								type="text"
 								placeholder="Name"
-								bind:value={name}
+								bind:value={form_name}
 								required
 								class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
 							/>
@@ -756,7 +777,7 @@
 							<input
 								type="email"
 								placeholder="Email"
-								bind:value={email}
+								bind:value={form_email}
 								required
 								class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
 							/>
@@ -766,7 +787,7 @@
 						<input
 							type="text"
 							placeholder="Subject"
-							bind:value={subject}
+							bind:value={form_subject}
 							required
 							class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
 						/>
@@ -774,7 +795,7 @@
 					<div>
 						<textarea
 							placeholder="Message"
-							bind:value={message}
+							bind:value={form_message}
 							required
 							rows="4"
 							class="w-full rounded-xl bg-zinc-800 px-4 py-3 text-base text-white shadow transition outline-none focus:ring-2 focus:ring-cyan-400"
@@ -783,9 +804,15 @@
 					<button
 						type="submit"
 						class="rounded-xl bg-cyan-400 bg-gradient-to-r px-8 py-3 text-lg font-semibold text-white shadow transition-transform duration-200 hover:scale-105 hover:-rotate-2 hover:shadow-cyan-400/40 active:scale-95"
-						bind:this={submitBtn}>Submit</button
+						>Submit</button
 					>
 				</form>
+				{#if form_success}
+					<p class="mt-2 text-cyan-400">Thank you for your message! I'll get back to you as soon as possible.</p>
+				{/if}
+				{#if form_error}
+					<p class="mt-2 text-red-400">{form_error}</p>
+				{/if}
 			</div>
 		</div>
 	</section>

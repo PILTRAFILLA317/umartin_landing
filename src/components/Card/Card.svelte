@@ -75,7 +75,7 @@
 		<CardItem
 			{isMouseEntered}
 			translateZ={50}
-			className="bottom-7 ml-10 z-50 absolute font-normal text-white"
+			className="bottom-7 mx-10 z-50 absolute font-normal text-start text-white"
 		>
 			{project.description}
 		</CardItem>

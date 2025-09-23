@@ -18,6 +18,7 @@
 
 	let phi = 0;
 	let width = 0;
+	
 	let onResize = () => {
 		width = canvas.offsetWidth;
 	};

@@ -60,7 +60,7 @@
 </script>
 
 <div
-	class="group relative transform rounded-xl bg-white/5 shadow-lg backdrop-blur-xs transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.04] hover:shadow-2xl"
+	class="group relative transform rounded-xl bg-white/5 shadow-lg backdrop-blur-xs transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.04] hover:shadow-2xl hover:shadow-cyan-400/[0.2]"
 	role="button"
 	tabindex="0"
 	onmouseenter={onHover}
