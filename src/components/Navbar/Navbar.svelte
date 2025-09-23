@@ -34,12 +34,10 @@
 				></span>
 				<span
 					class="relative text-sm text-white transition-colors duration-500 group-hover:text-black"
-					>About</span
+					onclick={() => {
+						document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+					}}>About</span
 				>
-				<!-- <span
-				class="absolute inset-x-0 -bottom-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent scale-0 transition-transform duration-500 group-hover:scale-100 via-blue-500 to-transparent"
-			>
-			</span> -->
 			</button>
 			<button
 				class="group relative cursor-pointer rounded-full px-4 py-2 font-semibold"
