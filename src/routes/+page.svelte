@@ -43,7 +43,7 @@
 	let j = 0;
 	let currentWord = '';
 	let isDeleting = false;
-	let textElement = '';
+	let textElement = $state('');
 	let showCursor = true;
 
 	// Función para actualizar el display sin cursor
