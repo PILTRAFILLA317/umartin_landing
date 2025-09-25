@@ -136,9 +136,9 @@
 	</Canvas>
 </div>
 <AboutSection/>
-<!-- <ProjectsSection/> -->
-<!-- <SkillSection/> -->
-<!-- <ContactForm/> -->
+<ProjectsSection/>
+<SkillSection/>
+<ContactForm/>
 
 
 <footer class="mt-10 w-full bg-zinc-900 py-6 text-center text-sm text-zinc-400">

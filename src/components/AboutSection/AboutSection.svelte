@@ -31,11 +31,11 @@
 		</h2>
 	</div>
 
-	<section class="flex flex-col items-center rounded-xs backdrop-blur-sm backdrop-filter justify-center sm:mx-8 md:mx-16 lg:mx-30 lg:flex-row">
+	<section class="flex flex-col items-center rounded-xs backdrop-blur-sm backdrop-filter justify-center mx-4 md:mx-16 lg:mx-30 lg:flex-row">
 		<div
 			class="flex flex-1 flex-col overflow-hidden text-white"
 		>
-            <div class="relative flex flex-col justify-center gap-6 p-12">
+            <div class="relative flex flex-col justify-center gap-6 p-4 md:p-12">
                 <div
                     class="backdrop-blur-2xs absolute inset-0 bg-cyan-400/5 text-white backdrop-filter rounded-2xl lg:rounded-l-2xl lg:rounded-r-none"
                 ></div>
