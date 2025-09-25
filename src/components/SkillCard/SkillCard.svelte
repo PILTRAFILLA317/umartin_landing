@@ -23,7 +23,9 @@
 >
 	<h2 class="mt-2 mb-4 text-2xl font-bold text-white">{group}</h2>
 	<div
-		class="hover:shadox-xl grid [grid-template-columns:repeat(3,auto)] justify-items-center gap-x-3 gap-y-4"
+		class="grid justify-items-center gap-x-3 gap-y-4
+			sm:[grid-template-columns:repeat(3,auto)]
+			[grid-template-columns:repeat(2,auto)]"
 	>
 		{#each skills as skill (skill.name)}
 			<div class="w-full items-center">

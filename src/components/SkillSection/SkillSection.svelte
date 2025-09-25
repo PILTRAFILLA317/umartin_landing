@@ -239,23 +239,45 @@
 	];
 </script>
 
-<div class="relative top-0 left-0 w-full py-8 md:py-4" id="Skills">
-	<h1
-		class="ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
-	>
-		My Skills
-	</h1>
-	<h2 class="ml-30 max-w-2xl text-lg font-light text-[#b4b4b4]">
-		The tools and technologies I use to bring ideas to life:
-	</h2>
-
-	<div class="flex flex-col items-center justify-center gap-12 lg:flex-row">
+<div class="relative top-0 left-0 mt-10 w-full py-8 md:py-4" id="Skills">
+	<div class="mx-4 flex max-w-4xl flex-col items-start sm:mx-8 md:mx-16 lg:mx-30">
+		<h1
+			class="bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl"
+		>
+			My Skills
+		</h1>
+		<h2 class="max-w-2xl text-base font-light text-[#b4b4b4] sm:text-lg md:text-xl">
+			The tools and technologies I use to bring ideas to life:
+		</h2>
+	</div>
+	<!-- <div class="flex flex-col items-center justify-center 2xl:gap-12 2xl:flex-row">
 		<SkillCard skills={front_skills} group={'Frontend'} />
 		<SkillCard skills={back_skills} group={'Backend'} />
 		<SkillCard skills={tools} group={'Tools'} />
 	</div>
-	<div class="flex flex-row items-center justify-center gap-12"></div>
-	<div class="flex flex-row items-center justify-center gap-12">
+	<div class="flex flex-col items-center justify-center 2xl:gap-12 2xl:flex-row">
+		<SkillCard skills={languages} group={'Languages'} />
+		<SkillCard skills={design_skills} group={'Design'} />
+		<SkillCard skills={mobile_skills} group={'Mobile Development'} /> -->
+	<!-- Elimina el grid y usa el mismo flex que arriba para mantener el tamaño y estilo -->
+	<!-- </div> -->
+	<div
+		class="
+			grid grid-cols-1 items-center
+			justify-center
+			gap-x-8
+			mx-4
+			md:mx-15
+			lg:mx-15
+			lg:grid-cols-2
+			lg:grid-rows-3
+			2xl:xl:grid-cols-3
+			2xl:xl:grid-rows-2
+		"
+	>
+		<SkillCard skills={front_skills} group={'Frontend'} />
+		<SkillCard skills={back_skills} group={'Backend'} />
+		<SkillCard skills={tools} group={'Tools'} />
 		<SkillCard skills={languages} group={'Languages'} />
 		<SkillCard skills={design_skills} group={'Design'} />
 		<SkillCard skills={mobile_skills} group={'Mobile Development'} />

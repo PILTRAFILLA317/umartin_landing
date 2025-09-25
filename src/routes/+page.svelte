@@ -67,10 +67,10 @@
 
 <Navbar />
 
-<div class="mx-4 mt-10 flex max-w-4xl flex-col items-start sm:mx-8 md:mx-16 lg:mx-30">
+<div class="mx-4 flex max-w-4xl flex-col items-start sm:mx-8 md:mx-16 lg:mx-30">
 	<h1
 		id="home"
-		class="mt-20 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent"
+		class="mt-10 sm:mt-20 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent"
 	>
 		Hi, I'm Unai!
 	</h1>
@@ -87,7 +87,7 @@
 		and high‑performance backends to polished frontends and native apps, I blend clean architecture,
 		performance tuning, and sharp UI/UX. Complex problems in, reliable products out.
 	</h2>
-	<div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+	<div class="flex items-center gap-4 flex-row sm:gap-6">
 		<button
 			class="group relative w-full cursor-pointer rounded-full bg-cyan-400/20 px-6 py-3 font-semibold sm:w-auto sm:px-8 sm:py-4"
 			onclick={() => {

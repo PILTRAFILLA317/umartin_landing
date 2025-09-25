@@ -45,16 +45,18 @@
 	];
 </script>
 
-<div id="projects" class="relative top-0 left-0 w-full py-8 md:py-4">
-	<h2
-		class="mt-20 ml-30 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-5xl leading-tight font-bold text-transparent"
-	>
-		Lastest Projects
-	</h2>
-	<h2 class="ml-30 max-w-2xl text-lg font-light text-[#b4b4b4]">
-		A collection of my recent work, showcasing a variety of skills and technologies.
-	</h2>
-	<div class="grid grid-cols-2 gap-10 px-30">
+<div id="projects" class="relative top-0 left-0 w-full mt-10 py-8 md:py-4">
+	<div class="mx-4 flex max-w-4xl flex-col items-start sm:mx-8 md:mx-16 lg:mx-30">
+		<h2
+			class="bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl"
+		>
+			Latest Projects
+		</h2>
+		<h2 class="mb-8 max-w-2xl text-base font-light text-[#b4b4b4] sm:text-lg md:text-xl">
+			A collection of my recent work, showcasing a variety of skills and technologies.
+		</h2>
+	</div>
+	<div class="grid grid-cols-1 2xl:grid-cols-2 gap-10 px-4 md:px-30">
 		{#each projects as project (project.title)}
 			<button onclick={() => window.open(project.link, '_blank')}>
 				<Card {project} />

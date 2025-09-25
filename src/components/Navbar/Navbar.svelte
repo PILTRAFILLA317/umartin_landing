@@ -28,7 +28,7 @@
 
 <div class="relative w-full flex flex-row items-center justify-center">
     <div class="fixed top-10 z-[5000] flex flex-row items-center
-        {isMobile ? 'left-4 justify-start' : 'inset-x-0 justify-center'}">
+        {isMobile ? 'right-4 justify-end' : 'inset-x-0 justify-center'}">
         {#if isMobile}
             <div class="flex max-w-fit rounded-full border py-2 pr-2 pl-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-sm border-white/[0.2] bg-black/50">
                 <button
@@ -46,7 +46,7 @@
                     </span>
                 </button>
                 {#if menuOpen}
-                    <div class="absolute left-0 top-16 w-40 rounded-xl bg-black/90 border border-white/20 shadow-lg flex flex-col py-2 z-50">
+                    <div class="absolute right-0 top-16 w-40 rounded-xl bg-black/90 border border-white/20 shadow-lg flex flex-col py-2 z-50">
                         <button class="px-4 py-2 text-white text-left hover:bg-cyan-400/20 rounded" on:click={scrollToTop}>
                             Home
                         </button>

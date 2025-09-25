@@ -21,9 +21,9 @@
 	let isMouseEntered = $state(false);
 </script>
 
-<CardContainer bind:isMouseEntered className="inter-var">
+<CardContainer bind:isMouseEntered className="inter-var w-full">
 	<CardBody
-		className="relative group/card hover:shadow-2xl hover:shadow-cyan-400/[0.1] bg-black w-[800px] h-[500px] rounded-xl border"
+		className="flex relative group/card hover:shadow-2xl hover:shadow-cyan-400/[0.1] bg-black w-full h-[500px] rounded-xl border"
 	>
 		<div
 			class="absolute z-10 h-full w-full overflow-hidden rounded-xl bg-black object-cover opacity-60 group-hover/card:shadow-xl"
@@ -34,7 +34,7 @@
 				alt="thumbnail"
 			/>
 		</div>
-		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-36 ml-10 bottom-20 ">
+		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-52 lg:size-36 ml-10 sm:bottom-50 lg:bottom-20 ">
 			<img
 				src={project.logo}
 				height="1000"
@@ -47,7 +47,7 @@
 			<CardItem
 				{isMouseEntered}
 				translateZ="60"
-				className="absolute z-50 size-[550px] bottom-20 left-70"
+				className="absolute z-50 size-0 lg:size-[550px] bottom-20 right-20"
 			>
 				<img
 					src={project.mockup}
@@ -61,7 +61,7 @@
 			<CardItem
 				{isMouseEntered}
 				translateZ="60"
-				className="absolute z-50 size-[500px] bottom-20 left-70"
+				className="absolute z-50 size-0 lg:size-[500px] bottom-20 right-20"
 			>
 				<img
 					src={project.mockup}
@@ -75,7 +75,7 @@
 		<CardItem
 			{isMouseEntered}
 			translateZ={50}
-			className="bottom-7 mx-10 z-50 absolute font-normal text-start text-white"
+			className="bottom-10 lg:bottom-7 mx-10 z-50 absolute font-normal text-start text-white"
 		>
 			{project.description}
 		</CardItem>
