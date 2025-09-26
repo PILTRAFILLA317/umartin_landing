@@ -3,6 +3,11 @@
 	import Particles from '../components/Particles/Particles.svelte';
 	import favicon from '$lib/assets/favicon.png';
 
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+
+	inject({ mode: dev ? 'development' : 'production' });
+
 	let { children } = $props();
 </script>
 
@@ -14,4 +19,3 @@
 	{@render children?.()}
 	<Particles className="absolute opacity-40 inset-0 -z-10" refresh={true} />
 </div>
-
