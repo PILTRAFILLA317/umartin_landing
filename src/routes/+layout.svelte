@@ -12,7 +12,18 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<title>Unai Martín – Full Stack Developer</title>
+	<meta name="description" content="Diseño y desarrollo software rápido, elegante y robusto." />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://umartin.es/" />
+	<meta property="og:title" content="Unai Martín – Full Stack Developer" />
+	<meta property="og:image" content={favicon} />
+	<meta
+		property="og:description"
+		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
+	/>
+	<link rel="icon" type="image/png" href={favicon} />
 </svelte:head>
 
 <div class="relative inset-0 h-full min-h-screen w-full bg-[0f0f0f]">

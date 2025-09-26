@@ -144,30 +144,6 @@
 	&copy; {new Date().getFullYear()} Unai Martín. Not a single right reserved.
 </footer>
 
-<svelte:head>
-	<title>Unai Martín – Full Stack Developer</title>
-	<meta name="description" content="Diseño y desarrollo software rápido, elegante y robusto." />
-
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://umartin.es/" />
-	<meta property="og:title" content="Unai Martín – Full Stack Developer" />
-	<meta
-		property="og:description"
-		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
-	/>
-	<meta property="og:image" content="/favicon.png" />
-
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Unai Martín – Full Stack Developer" />
-	<meta
-		name="twitter:description"
-		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
-	/>
-	<!-- <meta name="twitter:image" content="https://umartin.es/og-image.png" /> -->
-
-	<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-</svelte:head>
-
 <style>
 	.cursor {
 		animation: blink 1s infinite;
