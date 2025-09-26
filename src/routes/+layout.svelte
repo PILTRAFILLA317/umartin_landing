@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import Particles from '../components/Particles/Particles.svelte';
+	import favicon from '$lib/assets/favicon.png';
 
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
@@ -18,10 +19,11 @@
 	<meta property="og:url" content="https://umartin.es/" />
 	<meta property="og:title" content="Unai Martín – Full Stack Developer" />
 	<meta
-		property="og:description"
-		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
+	property="og:description"
+	content="Diseño y entrego productos fiables: web, mobile, juegos y más."
 	/>
-	<link rel="icon" type="image/png" href="https://umartin.es/favicon.png" />
+	<meta property="og:image" content="https://umartin.es/og-image.png" />
+	<link rel="icon" type="image/png" href={favicon} />
 </svelte:head>
 
 <div class="relative inset-0 h-full min-h-screen w-full bg-[0f0f0f]">
