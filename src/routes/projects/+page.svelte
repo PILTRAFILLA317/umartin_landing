@@ -270,14 +270,14 @@
 
 <div class="w-full overflow-x-hidden">
 	<!-- Hero Section with Parallax -->
-	<div class="container w-screen max-w-full">
+	<div class="container w-screen max-w-full sm:block hidden">
 		<HeroParallax {products} />
 	</div>
 
 	<!-- Projects Section -->
 	<div class="max-w-8xl container mx-auto px-4">
 		<!-- Header -->
-		<div class="mb-12 text-center">
+		<div class="mb-12 mt-24 sm:mt-0 text-center">
 			<h2
 				class="mb-4 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-7xl leading-tight font-bold text-transparent"
 			>
