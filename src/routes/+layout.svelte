@@ -18,7 +18,10 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://umartin.es/" />
 	<meta property="og:title" content="Unai Martín – Full Stack Developer" />
-	<meta property="og:image" content={favicon} />
+	<meta property="og:image" content="https://umartin.es/og-image.png" />
+	<meta property="og:image:width" content="600" />
+	<meta property="og:image:height" content="600" />
+	<meta name="twitter:image" content="https://umartin.es/og-image.png" />
 	<meta
 		property="og:description"
 		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
