@@ -24,8 +24,8 @@
 	let { project, languageColors, isHovered, onHover, onLeave }: ProjectCardProps = $props();
 
 	// Referencias para controlar las animaciones
-	let lottiePlayerSmall: any;
-	let lottiePlayerLarge: any;
+	let lottiePlayerSmall = $state<any>(null);
+	let lottiePlayerLarge = $state<any>(null);
 	let isHoveringIcon = $state(false);
 	let mounted = $state(false); // Para controlar el renderizado cliente
 
@@ -92,6 +92,8 @@
 				class="flex h-10 w-10 items-center justify-center transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-6"
 				onmouseenter={handleIconHover}
 				onmouseleave={handleIconLeave}
+				role="presentation"
+				aria-hidden="true"
 			>
 				{#if project.lottie && mounted}
 					<LottiePlayer
@@ -134,9 +136,7 @@
 		</div>
 
 		<!-- Description -->
-		<p
-			class="mb-4 line-clamp-3 text-smtransition-colors duration-300 font-light text-[#b4b4b4]"
-		>
+		<p class="mb-4 line-clamp-3 text-sm transition-colors duration-300 font-light text-[#b4b4b4]">
 			{project.description}
 		</p>
 

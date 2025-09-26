@@ -30,8 +30,10 @@
 		>
 			<img
 				src={project.bg}
+				loading="lazy"
+				decoding="async"
 				class="absolute z-10 h-full w-full rounded-xl object-cover blur-xs group-hover/card:shadow-xl"
-				alt="thumbnail"
+				alt={`Background image for ${project.title}`}
 			/>
 		</div>
 		<CardItem {isMouseEntered} translateZ="60" className="absolute z-50 size-52 lg:size-36 ml-10 sm:bottom-50 lg:bottom-20 ">
@@ -39,8 +41,10 @@
 				src={project.logo}
 				height="1000"
 				width="1000"
+				loading="lazy"
+				decoding="async"
 				class="h-full w-full rounded-xl object-cover"
-				alt="thumbnail"
+				alt={`${project.title} logo`}
 			/>
 		</CardItem>
 		{#if project.isWeb}
@@ -53,8 +57,10 @@
 					src={project.mockup}
 					height="1000"
 					width="1000"
+					loading="lazy"
+					decoding="async"
 					class="h-full w-full rounded-xl object-cover"
-					alt="thumbnail"
+					alt={`${project.title} mockup`}
 				/>
 			</CardItem>
 		{:else}
@@ -67,8 +73,10 @@
 					src={project.mockup}
 					height="1000"
 					width="1000"
+					loading="lazy"
+					decoding="async"
 					class="h-full w-full rounded-xl object-cover"
-					alt="thumbnail"
+					alt={`${project.title} mockup`}
 				/>
 			</CardItem>
 		{/if}

@@ -8,11 +8,12 @@
     RenderPass
   } from 'postprocessing'
   import { onMount } from 'svelte'
+  import type { Camera } from 'three'
 
   const { scene, renderer, camera, size, autoRender, renderStage } = useThrelte()
   const composer = new EffectComposer(renderer)
 
-  function setup(cam: THREE.Camera) {
+  function setup(cam: Camera | null) {
     if (!cam) return
     composer.removeAllPasses()
     composer.addPass(new RenderPass(scene, cam))
@@ -28,7 +29,7 @@
     composer.addPass(pass)
   }
 
-  $: setup($camera)
+  $: setup($camera as Camera | null)
   $: composer.setSize($size.width, $size.height)
 
   onMount(() => {

@@ -1,15 +1,13 @@
 <script lang="ts">
 	import BorderBeam from '../BorderBeam/BorderBeam.svelte';
 	import Skill from '../Skill/Skill.svelte';
-	type Props = {
-		skill: {
-			name: string;
-			logo: string;
-			gradientColor?: string;
-		}[];
-		group: string;
+	type SkillData = {
+		name: string;
+		logo: string;
+		gradientColor?: string;
 	};
-	let { skills, group }: Props = $props();
+
+	let { skills, group } = $props<{ skills: SkillData[]; group: string }>();
 </script>
 
 <div

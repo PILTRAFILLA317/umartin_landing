@@ -8,26 +8,37 @@
 	let form_message = $state('');
 	let form_success = $state(false);
 	let form_error = $state('');
+	let isSubmitting = $state(false);
 
 	async function handleFormSubmit(event: Event) {
 		event.preventDefault();
+		if (isSubmitting) return;
+		isSubmitting = true;
 		form_success = false;
 		form_error = '';
-		const res = await fetch('https://formspree.io/f/xldpebqo', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ form_name, form_email, form_subject, form_message })
-		});
-		if (res.ok) {
-			form_success = true;
-			form_name = '';
-			form_email = '';
-			form_subject = '';
-			form_message = '';
-		} else {
-			form_error = 'Error sending message. Please try again.';
+		try {
+			const res = await fetch('https://formspree.io/f/xldpebqo', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ form_name, form_email, form_subject, form_message })
+			});
+
+			if (res.ok) {
+				form_success = true;
+				form_name = '';
+				form_email = '';
+				form_subject = '';
+				form_message = '';
+			} else {
+				const data = await res.json().catch(() => null);
+				form_error = data?.error ?? 'Error sending message. Please try again.';
+			}
+		} catch (error) {
+			form_error = 'Network error. Please try again in a moment.';
+		} finally {
+			isSubmitting = false;
 		}
 	}
 </script>
@@ -151,18 +162,26 @@
 				</div>
 				<button
 					type="submit"
-					class="rounded-xl bg-cyan-400 bg-gradient-to-r px-8 py-3 text-lg font-semibold text-white shadow transition-transform duration-200 hover:scale-105 hover:-rotate-2 hover:shadow-cyan-400/40 active:scale-95"
-					>Submit</button
+					disabled={isSubmitting}
+					aria-busy={isSubmitting}
+					class="rounded-xl bg-cyan-400 bg-gradient-to-r px-8 py-3 text-lg font-semibold text-white shadow transition-transform duration-200 hover:scale-105 hover:-rotate-2 hover:shadow-cyan-400/40 active:scale-95 disabled:cursor-not-allowed disabled:opacity-80"
 				>
+					{#if isSubmitting}
+						Sending...
+					{:else}
+						Submit
+					{/if}
+				</button>
 			</form>
-			{#if form_success}
-				<p class="mt-2 text-cyan-400">
-					Thank you for your message! I'll get back to you as soon as possible.
-				</p>
-			{/if}
-			{#if form_error}
-				<p class="mt-2 text-red-400">{form_error}</p>
-			{/if}
+			<div class="min-h-[24px]" aria-live="polite" aria-atomic="true">
+				{#if form_success}
+					<p class="mt-2 text-cyan-400">
+						Thank you for your message! I'll get back to you as soon as possible.
+					</p>
+				{:else if form_error}
+					<p class="mt-2 text-red-400">{form_error}</p>
+				{/if}
+			</div>
 		</div>
 	</section>
 </div>

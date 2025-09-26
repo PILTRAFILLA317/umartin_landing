@@ -14,9 +14,27 @@
   let canvasRef: HTMLCanvasElement;
   let canvasContainerRef: HTMLDivElement;
   let context: CanvasRenderingContext2D | null = null;
-  let circles: any[] = [];
+  type Circle = {
+    x: number;
+    y: number;
+    translateX: number;
+    translateY: number;
+    size: number;
+    alpha: number;
+    targetAlpha: number;
+    dx: number;
+    dy: number;
+    magnetism: number;
+  };
+
+  let circles: Circle[] = [];
   let mouse = { x: 0, y: 0 };
   let canvasSize = { w: 0, h: 0 };
+  let animationFrame = 0;
+  let effectiveQuantity = quantity;
+  let reduceMotion = false;
+  let reduceMotionQuery: MediaQueryList | null = null;
+  let smallScreenQuery: MediaQueryList | null = null;
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
   function hexToRgb(hex: string): number[] {
@@ -36,9 +54,10 @@
     return [red, green, blue];
   }
 
-  const rgb = hexToRgb(color);
+  let rgb = hexToRgb(color);
+  $: rgb = hexToRgb(color);
 
-  function circleParams() {
+  function circleParams(): Circle {
     const x = Math.floor(Math.random() * canvasSize.w);
     const y = Math.floor(Math.random() * canvasSize.h);
     const translateX = 0;
@@ -72,6 +91,7 @@
       canvasRef.height = canvasSize.h * dpr;
       canvasRef.style.width = `${canvasSize.w}px`;
       canvasRef.style.height = `${canvasSize.h}px`;
+      context.setTransform(1, 0, 0, 1, 0, 0);
       context.scale(dpr, dpr);
     }
   }
@@ -82,7 +102,7 @@
     }
   }
 
-  function drawCircle(circle, update = false) {
+  function drawCircle(circle: Circle, update = false) {
     if (context) {
       const { x, y, translateX, translateY, size, alpha } = circle;
       context.translate(translateX, translateY);
@@ -100,19 +120,30 @@
 
   function drawParticles() {
     clearContext();
-    for (let i = 0; i < quantity; i++) {
+    circles.length = 0;
+    for (let i = 0; i < effectiveQuantity; i++) {
       const circle = circleParams();
       drawCircle(circle);
     }
   }
 
-  function remapValue(value, start1, end1, start2, end2) {
+  function remapValue(
+    value: number,
+    start1: number,
+    end1: number,
+    start2: number,
+    end2: number
+  ): number {
     let remapped =
       ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
     return remapped > 0 ? remapped : 0;
   }
 
   function animate() {
+    if (reduceMotion) {
+      clearContext();
+      return;
+    }
     clearContext();
     circles.forEach((circle, i) => {
       const edge = [
@@ -153,7 +184,14 @@
         drawCircle(newCircle);
       }
     });
-    window.requestAnimationFrame(animate);
+    animationFrame = window.requestAnimationFrame(animate);
+  }
+
+  function stopAnimation() {
+    if (animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+    }
   }
 
   function onMouseMove(event: MouseEvent) {
@@ -170,25 +208,60 @@
     }
   }
 
+  function applyPreferences() {
+    if (typeof window === "undefined") return;
+    reduceMotion = reduceMotionQuery?.matches ?? false;
+    const isSmallScreen = smallScreenQuery?.matches ?? false;
+    effectiveQuantity = reduceMotion
+      ? 0
+      : isSmallScreen
+        ? Math.min(quantity, 600)
+        : quantity;
+
+    circles.length = 0;
+    if (reduceMotion) {
+      stopAnimation();
+      clearContext();
+    } else {
+      drawParticles();
+      if (!animationFrame) {
+        animationFrame = window.requestAnimationFrame(animate);
+      }
+    }
+  }
+
   onMount(() => {
-    if (canvasRef) {
-      context = canvasRef.getContext("2d");
-      resizeCanvas();
-      animate();
-      window.addEventListener("resize", resizeCanvas);
-      window.addEventListener("mousemove", onMouseMove);
+    if (!canvasRef) {
+      return;
     }
 
+    context = canvasRef.getContext("2d");
+    resizeCanvas();
+    reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    smallScreenQuery = window.matchMedia("(max-width: 640px)");
+
+    reduceMotionQuery.addEventListener("change", applyPreferences);
+    smallScreenQuery.addEventListener("change", applyPreferences);
+    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("mousemove", onMouseMove);
+
+    applyPreferences();
+
     return () => {
+      stopAnimation();
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", onMouseMove);
+      reduceMotionQuery?.removeEventListener("change", applyPreferences);
+      smallScreenQuery?.removeEventListener("change", applyPreferences);
     };
   });
 
   $: {
-    if (canvasRef) {
+  quantity;
+  refresh;
+    effectiveQuantity;
+    if (canvasRef && context && !reduceMotion) {
       drawParticles();
-      //   animate();
     }
   }
   //   Building Stage

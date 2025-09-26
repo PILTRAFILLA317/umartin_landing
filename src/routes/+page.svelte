@@ -1,16 +1,15 @@
 <script lang="ts">
-	import { M } from 'svelte-motion';
 	import Navbar from '../components/Navbar/Navbar.svelte';
 	import Scene from '../components/Scene/Scene.svelte';
-	import Card from '../components/Card/Card.svelte';
 	import ContactForm from '../components/ContactForm/ContactForm.svelte';
-	import Globe from '../components/Globe/Globe.svelte';
 	import ProjectsSection from '../components/ProjectsSection/ProjectsSection.svelte';
 	import AboutSection from '../components/AboutSection/AboutSection.svelte';
 	import SkillSection from '../components/SkillSection/SkillSection.svelte';
 	import { Canvas } from '@threlte/core';
+	import { onMount } from 'svelte';
 
 	const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
+	let showScene = $state(false);
 
 	let words = [
 		'Full Stack Developer',
@@ -63,6 +62,17 @@
 		}
 	}
 	type();
+
+	onMount(() => {
+		const updateSceneVisibility = () => {
+			showScene = window.innerWidth >= 640;
+		};
+
+		updateSceneVisibility();
+		window.addEventListener('resize', updateSceneVisibility);
+
+		return () => window.removeEventListener('resize', updateSceneVisibility);
+	});
 </script>
 
 <Navbar />
@@ -130,11 +140,13 @@
 	</div>
 </div>
 
-<div class="mt-10 mb-20 hidden h-[700px] max-w-full saturate-150 sm:block">
-	<Canvas>
-		<Scene />
-	</Canvas>
-</div>
+{#if showScene}
+	<div class="mt-10 mb-20 hidden h-[700px] max-w-full saturate-150 sm:block">
+		<Canvas>
+			<Scene />
+		</Canvas>
+	</div>
+{/if}
 <AboutSection />
 <ProjectsSection />
 <SkillSection />

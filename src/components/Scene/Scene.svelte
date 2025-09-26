@@ -41,9 +41,15 @@
 	});
 
 	let mousePosition = { x: 0, y: 0 };
-	window.addEventListener('mousemove', (event) => {
+
+	function handleMouseMove(event: MouseEvent) {
 		mousePosition.x = (event.clientX / window.innerWidth) * 2 - 1;
 		mousePosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
+	}
+
+	onMount(() => {
+		window.addEventListener('mousemove', handleMouseMove);
+		return () => window.removeEventListener('mousemove', handleMouseMove);
 	});
 
 	const gltf = useLoader(GLTFLoader).load('scene_assets/scene.glb');

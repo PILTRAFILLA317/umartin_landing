@@ -24,6 +24,8 @@
 				src={product.thumbnail}
 				height="600"
 				width="600"
+				loading="lazy"
+				decoding="async"
 				class="absolute inset-0 h-full w-full object-cover object-left-top rounded-2xl"
 				alt={product.title}
 			/>

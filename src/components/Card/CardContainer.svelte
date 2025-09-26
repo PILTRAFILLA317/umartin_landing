@@ -40,6 +40,8 @@
 			'relative flex items-center justify-center transition-all duration-200 ease-linear',
 			className
 		)}
+		role="presentation"
+		aria-hidden="true"
 		style="transform-style: preserve-3d;"
 	>
 		<slot />

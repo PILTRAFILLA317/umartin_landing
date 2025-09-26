@@ -56,21 +56,22 @@
 			A collection of my recent work, showcasing a variety of skills and technologies.
 		</h2>
 	</div>
-	<div class="grid grid-cols-1 2xl:grid-cols-2 gap-10 px-4 md:px-30">
+	<div class="grid grid-cols-1 gap-10 px-4 md:px-30 2xl:grid-cols-2">
 		{#each projects as project (project.title)}
-			<button onclick={() => window.open(project.link, '_blank')}>
+			<a
+				href={project.link}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="block"
+				aria-label={`Open ${project.title} project in a new tab`}
+			>
 				<Card {project} />
-			</button>
+			</a>
 		{/each}
 	</div>
 </div>
 <div class="container mb-10 flex w-screen max-w-full items-center justify-center">
-	<button
-		class="group relative cursor-pointer rounded-xl bg-black/40 px-8 py-4 font-semibold"
-		onclick={() => {
-			window.location.href = '/projects';
-		}}
-	>
+	<a class="group relative cursor-pointer rounded-xl bg-black/40 px-8 py-4 font-semibold" href="/projects">
 		<span
 			class="absolute inset-0 z-0 h-full w-full origin-left scale-x-0 transform rounded-xl bg-white transition-transform duration-800 ease-in-out group-hover:scale-x-100"
 		>
@@ -88,5 +89,5 @@
 		<span class="relative text-xl text-white transition-colors duration-500 group-hover:text-black"
 			>View more projects</span
 		>
-	</button>
+	</a>
 </div>

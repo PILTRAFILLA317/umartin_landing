@@ -42,21 +42,21 @@
 </script>
 
 <div
-  on:mousemove={handleMouseMove}
-  on:mouseleave={handleMouseLeave}
+  onmousemove={handleMouseMove}
+  onmouseleave={handleMouseLeave}
   class={cn(
     'bg-zinc-800 border group relative mx-auto inline-flex size-full items-center justify-center overflow-hidden rounded-2xl p-3 py-4 text-white transition-transform duration-200 ease-in-out hover:scale-[1.05]',
     className
   )}
+  role="group"
+  aria-label={`Skill card for ${skill.name}`}
   style={`--grad-color: ${$gradColor ?? skill.gradientColor ?? '#27272a'};`}
 >
   <div class="relative z-10">
-    <slot>
-      <div class="flex items-center gap-x-4 text-xs whitespace-nowrap">
-        <img src={skill.logo} alt={skill.name} class="h-6 w-6 rounded-md" />
-        <h1 class="text-gray-200">{skill.name}</h1>
-      </div>
-    </slot>
+    <div class="flex items-center gap-x-4 text-xs whitespace-nowrap">
+      <img src={skill.logo} alt={skill.name} class="h-6 w-6 rounded-md" />
+      <h1 class="text-gray-200">{skill.name}</h1>
+    </div>
   </div>
 
   <Motion style={{ background: bg }} let:motion>
@@ -64,7 +64,7 @@
       use:motion
       class="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       style="opacity: {gradientOpacity}"
-    />
+    ></div>
   </Motion>
 </div>
 
