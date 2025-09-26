@@ -70,7 +70,7 @@
 <div class="mx-4 flex max-w-4xl flex-col items-start sm:mx-8 md:mx-16 lg:mx-30">
 	<h1
 		id="home"
-		class="mt-10 sm:mt-20 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent"
+		class="mt-10 bg-gradient-to-b from-[#e7e6e6] to-[#3f3f3f] bg-clip-text text-3xl font-light text-transparent sm:mt-20"
 	>
 		Hi, I'm Unai!
 	</h1>
@@ -87,7 +87,7 @@
 		and high‑performance backends to polished frontends and native apps, I blend clean architecture,
 		performance tuning, and sharp UI/UX. Complex problems in, reliable products out.
 	</h2>
-	<div class="flex items-center gap-4 flex-row sm:gap-6">
+	<div class="flex flex-row items-center gap-4 sm:gap-6">
 		<button
 			class="group relative w-full cursor-pointer rounded-full bg-cyan-400/20 px-6 py-3 font-semibold sm:w-auto sm:px-8 sm:py-4"
 			onclick={() => {
@@ -130,37 +130,42 @@
 	</div>
 </div>
 
-<div class="mt-10 mb-20 h-[700px] max-w-full saturate-150 hidden sm:block">
+<div class="mt-10 mb-20 hidden h-[700px] max-w-full saturate-150 sm:block">
 	<Canvas>
 		<Scene />
 	</Canvas>
 </div>
-<AboutSection/>
-<ProjectsSection/>
-<SkillSection/>
-<ContactForm/>
-
+<AboutSection />
+<ProjectsSection />
+<SkillSection />
+<ContactForm />
 
 <footer class="mt-10 w-full bg-zinc-900 py-6 text-center text-sm text-zinc-400">
 	&copy; {new Date().getFullYear()} Unai Martín. Not a single right reserved.
 </footer>
 
 <svelte:head>
-  <title>Unai Martín – Full Stack Developer</title>
-  <meta name="description" content="Diseño y desarrollo software rápido, elegante y robusto." />
+	<title>Unai Martín – Full Stack Developer</title>
+	<meta name="description" content="Diseño y desarrollo software rápido, elegante y robusto." />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://umartin.es/" />
-  <meta property="og:title" content="Unai Martín – Full Stack Developer" />
-  <meta property="og:description" content="Diseño y entrego productos fiables: web, mobile, juegos y más." />
-  <!-- <meta property="og:image" content="https://umartin.es/og-image.png" /> -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://umartin.es/" />
+	<meta property="og:title" content="Unai Martín – Full Stack Developer" />
+	<meta
+		property="og:description"
+		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
+	/>
+	<meta property="og:image" content="/favicon.png" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Unai Martín – Full Stack Developer" />
-  <meta name="twitter:description" content="Diseño y entrego productos fiables: web, mobile, juegos y más." />
-  <!-- <meta name="twitter:image" content="https://umartin.es/og-image.png" /> -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Unai Martín – Full Stack Developer" />
+	<meta
+		name="twitter:description"
+		content="Diseño y entrego productos fiables: web, mobile, juegos y más."
+	/>
+	<!-- <meta name="twitter:image" content="https://umartin.es/og-image.png" /> -->
 
-  <link rel="icon" href="/favicon.png" sizes="any" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 </svelte:head>
 
 <style>
