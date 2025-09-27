@@ -51,7 +51,7 @@
 			<CardItem
 				{isMouseEntered}
 				translateZ="60"
-				className="absolute z-50 size-0 lg:size-[550px] bottom-20 right-20"
+				className="absolute z-50 size-0 lg:size-[550px] bottom-20 right-10"
 			>
 				<img
 					src={project.mockup}

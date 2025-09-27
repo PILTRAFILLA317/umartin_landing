@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { House, Menu } from '@lucide/svelte';
+	import { onMount } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
 
 	let menuOpen = false;
+	let menuDropdown: HTMLDivElement | null = null;
+	let menuToggleButton: HTMLButtonElement | null = null;
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -13,6 +16,28 @@
 		document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 		menuOpen = false;
 	}
+
+	onMount(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (!menuOpen) return;
+
+			const target = event.target as Node | null;
+			if (!target) return;
+
+			const clickedInsideDropdown = menuDropdown?.contains(target);
+			const clickedToggleButton = menuToggleButton?.contains(target);
+
+			if (!clickedInsideDropdown && !clickedToggleButton) {
+				menuOpen = false;
+			}
+		};
+
+		document.addEventListener('click', handleClickOutside, true);
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside, true);
+		};
+	});
 </script>
 
 <div class="relative flex w-full flex-row items-center justify-center">
@@ -24,15 +49,13 @@
 				class="flex max-w-fit rounded-full border border-white/[0.2] bg-black/50 py-2 pr-2 pl-2 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-sm"
 			>
 				<button
-					class="group relative cursor-pointer rounded-full px-4 py-2 font-semibold"
+					class="relative cursor-pointer rounded-full px-4 py-2 font-semibold"
+					bind:this={menuToggleButton}
 					on:click={() => (menuOpen = !menuOpen)}
 					aria-label="Open menu"
 				>
 					<span
-						class="absolute inset-0 scale-0 rounded-full border-white bg-white transition-transform duration-500 group-hover:scale-100"
-					></span>
-					<span
-						class="relative text-sm text-white transition-colors duration-500 group-hover:text-black"
+						class="relative text-sm text-white"
 					>
 						<Menu class="inline h-5 w-5" />
 					</span>
@@ -40,6 +63,7 @@
 			</div>
 			{#if menuOpen}
 				<div
+					bind:this={menuDropdown}
 					transition:scale={{ duration: 200, start: 0.9 }}
 					class="absolute top-[calc(100%+0.75rem)] right-0 w-48 rounded-xl border border-white/20 bg-black/90 p-2 shadow-2xl backdrop-blur-lg"
 				>

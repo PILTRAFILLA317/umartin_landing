@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 body {
-    background: #0f0f0f;
+  background: #0f0f0f;
 }
 
 @utility animate-border-beam {
@@ -11,6 +11,12 @@ body {
 /* Keyframes equivalentes a keyframes['border-beam'] */
 @keyframes border-beam {
   100% {
-    offset-distance: 100%;
+  offset-distance: 100%;
+  }
+}
+
+@media (hover: none) {
+  .animate-border-beam {
+  animation: none;
   }
 }

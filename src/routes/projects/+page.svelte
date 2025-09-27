@@ -229,6 +229,18 @@
 			date: 'Apr 26, 2024',
 			status: 'private',
 			category: 'Full Stack'
+		},
+		{
+			name: 'Hypertube',
+			description: 'Streaming platform with user authentication, video management and downloads via torrent (WIP)',
+			technologies: ['Sveltekit', 'Bun', 'Express', 'PostgreSQL', 'TypeScript'],
+			link: 'https://github.com/Ionmi/hypertube',
+			language: 'Svelte',
+			icon: '📺',
+			lottie: 'lotties/tv.json',
+			date: 'Jan 15, 2025',
+			status: 'private',
+			category: 'Full Stack',
 		}
 	];
 
