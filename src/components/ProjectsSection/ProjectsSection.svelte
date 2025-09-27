@@ -171,6 +171,7 @@
 	<a
 		class="group relative cursor-pointer rounded-xl bg-black/40 px-8 py-4 font-semibold"
 		href="/projects"
+		data-sveltekit-reload
 	>
 		<span
 			class="absolute inset-0 z-0 h-full w-full origin-left scale-x-0 transform rounded-xl bg-white transition-transform duration-800 ease-in-out group-hover:scale-x-100"

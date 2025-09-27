@@ -11,11 +11,11 @@
 </script>
 
 <div
-	class="relative mt-10 transform rounded-3xl bg-gradient-to-r from-zinc-900 to-zinc-800 p-4 px-6
+	class="relative transform rounded-3xl bg-gradient-to-r from-zinc-900 to-zinc-800 p-4 px-6
          py-3 text-xl font-bold text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)]
          backdrop-blur-xl transition duration-500
          ease-in-out
-         hover:scale-110 hover:bg-gradient-to-r hover:from-zinc-800
+         hover:scale-105 hover:bg-gradient-to-r hover:from-zinc-800
          hover:to-zinc-900
          hover:shadow-zinc-800"
 >

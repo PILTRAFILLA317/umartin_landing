@@ -115,6 +115,7 @@
 					</div>
 				</div>
 				<Globe />
+				<div class="h-6"></div>
 			</div>
 		</div>
 		<div

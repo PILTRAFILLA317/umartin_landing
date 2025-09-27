@@ -246,7 +246,7 @@
 		>
 			My Skills
 		</h1>
-		<h2 class="max-w-2xl text-base font-light text-[#b4b4b4] sm:text-lg md:text-xl">
+		<h2 class="max-w-2xl mb-10 text-base font-light text-[#b4b4b4] sm:text-lg md:text-xl">
 			The tools and technologies I use to bring ideas to life:
 		</h2>
 	</div>
@@ -266,6 +266,8 @@
 			grid grid-cols-1 items-center
 			justify-center
 			gap-x-8
+			gap-y-10
+			lg:gap-y-0
 			mx-4
 			md:mx-15
 			lg:mx-15

@@ -92,7 +92,7 @@
 						Skills
 					</button>
 					<button
-						class="w-full rounded-lg bg-cyan-400 px-4 py-2 text-left text-black transition hover:bg-cyan-300"
+						class="w-full rounded-lg bg-cyan-400 px-4 py-2 text-left text-white transition hover:bg-cyan-300"
 						on:click={() => scrollToSection('Contact')}
 					>
 						Contact
